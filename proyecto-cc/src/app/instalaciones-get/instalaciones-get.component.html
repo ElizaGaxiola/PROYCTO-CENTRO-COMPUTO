@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Clave</td>
+      <td>Nombre</td>
+      <td>Edificio</td>
+      <td colspan="2">Acciones</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let instalacion of instalaciones">
+          <td>{{ instalacion.clave }}</td>
+          <td>{{ instalacion.nombre }}</td>
+          <td>{{ instalacion.edificio }}</td>
+          <td><a (click) = "editInstalacion(instalacion._id)" class="btn btn-primary">Editar</a></td>
+          <td><a (click) = "deleteInstalacion(instalacion._id)" class="btn btn-danger">Eliminar</a></td>
+      </tr>
+  </tbody>
+</table>

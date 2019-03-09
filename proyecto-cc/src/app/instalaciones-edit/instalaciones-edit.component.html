@@ -1,0 +1,46 @@
+<h1  mat-dialog-title>Editar</h1>
+    <mat-dialog-content>
+      <div class="card">
+        <div class="card-body">
+            <form [formGroup]="angForm" novalidate>
+                <div class="form-group">
+                    <label class="col-md-4">Clave</label>
+                    <input type="text" class="form-control" formControlName="clave" #clave [(ngModel)] = "instalacion.clave" />
+                  </div>
+                  <div *ngIf="angForm.controls['clave'].invalid && (angForm.controls['clave'].dirty || angForm.controls['clave'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['clave'].errors.required">
+                      La clave es necesaria.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-4">Nombre </label>
+                    <input type="text" class="form-control" formControlName="nombre" #nombre [(ngModel)] = "instalacion.nombre" />
+                  </div>
+                  <div *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['nombre'].errors.required">
+                      El nombre es requerido.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-4">Edificio </label>
+                    <input type="number" class="form-control" formControlName="edificio" #edificio [(ngModel)] = "instalacion.edificio" />
+                  </div>
+                  <div *ngIf="angForm.controls['edificio'].invalid && (angForm.controls['edificio'].dirty || angForm.controls['edificio'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['edificio'].errors.required">
+                      Business GST Number is required.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button (click)="updateInstalacion(clave.value, nombre.value, edificio.value)"
+                        [disabled]="angForm.pristine || angForm.invalid" 
+                        class="btn btn-primary">
+                        Actualizar Instalación
+                     </button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </mat-dialog-content>
+<mat-dialog-actions>
+    <button  mat-raised-button (click)="closeMe()">Close</button>
+</mat-dialog-actions>

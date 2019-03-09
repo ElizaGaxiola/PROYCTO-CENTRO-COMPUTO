@@ -1,0 +1,33 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/ng2-slim-loading-bar/style.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body {
+    margin: 0px;
+    padding: 0px;
+  }
+body{
+    background-image: url("/assets/img/UAS_logo.png");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment : fixed;
+    background-color: #FFFFFF;
+    font-family: Roboto, 'Helvetice New', 'Arial', sans-serif
+  }
+.bg-light {
+    background-color: #13367A !important;
+  }
+label#uas {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
+    margin: 10px 0 0 30px;
+    color: #FFFFFF;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 45px;
+}
+a.nav-link {
+  color: #F3AD00 !important;
+  font-size: larger !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
