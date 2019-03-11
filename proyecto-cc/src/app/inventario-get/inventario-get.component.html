@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Serie</td>
+      <td>Marca</td>
+      <td>Modelo</td>
+      <td>Procesador</td>
+      <td>Fecha de Registro</td>
+      <td>Estatus</td>
+      <td colspan="2">Acciones</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let inventario of inventarios">
+          <td>{{ inventario.serie }}</td>
+          <td>{{ inventario.marca }}</td>
+          <td>{{ inventario.modelo }}</td>
+          <td>{{ inventario.procesador }}</td>
+          <td>{{ inventario.fechaRegistro }}</td>
+          <td>{{ inventario.estatus }}</td>
+          <td><a (click) = "editInventario(inventario._id)" class="btn btn-primary">Editar</a></td>
+          <td><a (click) = "deleteInventario(inventario._id)" class="btn btn-danger">Eliminar</a></td>
+      </tr>
+  </tbody>
+</table>

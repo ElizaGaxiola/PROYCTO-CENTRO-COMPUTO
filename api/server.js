@@ -8,6 +8,7 @@ const express = require('express'),
     config = require('./DB');
     
 const instalacionesRoutes = require('./rutas/instalaciones.route');
+const inventarioRoutes = require('./rutas/inventario.route');
 
     mongoose.Promise = global.Promise;
     mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -19,6 +20,7 @@ const instalacionesRoutes = require('./rutas/instalaciones.route');
     app.use(bodyParser.json());
     app.use(cors());
     app.use('/instalaciones', instalacionesRoutes);
+    app.use('/inventario', inventarioRoutes);
     let port = process.env.PORT || 4000;
 
     const server = app.listen(4000,function(){

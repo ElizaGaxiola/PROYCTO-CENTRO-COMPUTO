@@ -20,6 +20,11 @@ import { MatDialogModule, MatButtonModule, MatCardModule, MatTableModule, MatFor
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PersonalComponent } from './personal/personal.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import { InventarioService } from './inventario.service';
+import { InventarioAddComponent } from './inventario-add/inventario-add.component';
+import { InventarioGetComponent } from './inventario-get/inventario-get.component';
+import { InventarioEditComponent } from './inventario-edit/inventario-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +35,17 @@ import { PersonalComponent } from './personal/personal.component';
     InstalacionesAddComponent,
     InstalacionesGetComponent,
     InstalacionesEditComponent,
-    PersonalComponent
+    PersonalComponent,
+    InventarioComponent,
+    InventarioAddComponent,
+    InventarioGetComponent,
+    InventarioEditComponent
   ],
   entryComponents: [
     InstalacionesAddComponent,
-    InstalacionesEditComponent
+    InstalacionesEditComponent,
+    InventarioAddComponent,
+    InventarioEditComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +64,7 @@ import { PersonalComponent } from './personal/personal.component';
     MatDialogModule,
     MaterialModule
   ],
-  providers: [ InstalacionesService ],
+  providers: [ InstalacionesService,InventarioService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
