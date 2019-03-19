@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { InstalacionesService } from '../instalaciones.service';
-import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
-import Instalaciones from '../Instalaciones';
+import {MatDialogRef, MAT_DIALOG_DATA} from  '@angular/material';
 @Component({
   selector: 'app-instalaciones-edit',
   templateUrl: './instalaciones-edit.component.html',
@@ -27,10 +26,9 @@ export class InstalacionesEditComponent implements OnInit {
     
   }
 
- 
-
   updateInstalacion(clave,nombre,edificio){
       this.ins.updateInstalacion(clave, nombre, edificio, this.id);
+      this.dialogRef.close();
   }
 
   createForm() {
@@ -39,10 +37,6 @@ export class InstalacionesEditComponent implements OnInit {
       nombre: ['', Validators.required ],
       edificio: ['', Validators.required ]
     });
-  }
-
-  public  closeMe() {
-    this.dialogRef.close();
   }
 
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import Inventario from '../Inventario';
 import { InventarioService } from '../inventario.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { InventarioEditComponent } from '../inventario-edit/inventario-edit.component';
 @Component({
   selector: 'app-inventario-get',
@@ -9,8 +9,13 @@ import { InventarioEditComponent } from '../inventario-edit/inventario-edit.comp
   styleUrls: ['./inventario-get.component.css']
 })
 export class InventarioGetComponent implements OnInit {
-  inventarios: Inventario[];
-  constructor(private bs: InventarioService,private ins: InventarioService,private  dialog:  MatDialog) { }
+  displayedColumns: string[] = ['serie', 'marca', 'modelo', 'procesador','fechaRegistro','estatus','acciones'];
+  dataSource: MatTableDataSource<Inventario>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private ins: InventarioService,private  dialog:  MatDialog) { }
 
   editInventario(id): void {
     const dialogRef = this.dialog.open(InventarioEditComponent, {
@@ -19,22 +24,34 @@ export class InventarioGetComponent implements OnInit {
     });
         
     dialogRef.afterClosed().subscribe(result => {
-      console.log('termino');
+      this.obtenerInventrio();
     });
   }
   deleteInventario(id): void{
     this.ins.deleteInventario(id).subscribe(res => {
-      console.log('Deleted');
+      this.obtenerInventrio();
     });
   }
- 
-
-  ngOnInit() {
-    this.bs
+  obtenerInventrio(){
+    this.ins
       .getInventario()
       .subscribe((data: Inventario[]) => {
-        this.inventarios = data;
+        // Assign the data to the data source for the table to render
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     });
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  ngOnInit() {
+    this.obtenerInventrio();
   }
 
 }

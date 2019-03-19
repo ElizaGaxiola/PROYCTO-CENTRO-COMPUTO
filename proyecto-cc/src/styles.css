@@ -6,28 +6,68 @@ html, body {
     padding: 0px;
   }
 body{
-    background-image: url("/assets/img/UAS_logo.png");
-    background-repeat: no-repeat;
-    background-position:center;
-    background-attachment : fixed;
     background-color: #FFFFFF;
     font-family: Roboto, 'Helvetice New', 'Arial', sans-serif
   }
-.bg-light {
+nav {
     background-color: #13367A !important;
-  }
+}
 label#uas {
     font-family: "Times New Roman", Times, serif;
     font-size: 28px;
-    margin: 10px 0 0 30px;
+    margin-right: 20px;
     color: #FFFFFF;
     font-style: italic;
     font-weight: normal;
     line-height: 45px;
 }
-a.nav-link {
-  color: #F3AD00 !important;
+a{
+  font-family: "Times New Roman", Times, serif;
   font-size: larger !important;
+}
+a.active {
+  color: #FED627;
+  text-decoration: underline;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+.container {
+  background-color:rgb(247, 245, 245);
+  opacity:0.96; /* Opacidad 60% */
+  margin-top: 3% !important;
+}
+input,input:focus {
+  border-bottom: none!important;
+  box-shadow: none!important;
+}
+a.btn.btn-edit {
+  background-color: #ffea00;
+  margin: 3%;
+  color: white;
+}
+a.btn.btn-delete {
+  background-color: #d50000;
+  margin: 3%;
+  color: white;
+}
+img {
+  margin-right: 20px;
+}
+button.btn.btn-primary {
+  background-color: #13367A;
+}
+td {
+  background: white;
+}

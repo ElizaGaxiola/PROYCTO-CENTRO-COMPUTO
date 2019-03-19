@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { InstalacionesComponent } from './instalaciones/instalaciones.component';
 import { InventarioComponent } from './inventario/inventario.component';
 import { from } from 'rxjs';
+import { EdificioComponent } from './edificio/edificio.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'inventario',
     component: InventarioComponent
+  },
+  {
+    path: 'edificios',
+    component: EdificioComponent
   }
 ];
 

@@ -27,6 +27,7 @@ export class InventarioEditComponent implements OnInit {
   }
   updateInventario(serie,marca,modelo,procesador,fechaRegistro,estatus){
     this.ins.updateInventario(serie, marca, modelo,procesador,fechaRegistro,estatus, this.id);
+    this.dialogRef.close();
 }
 
 createForm() {
@@ -40,7 +41,4 @@ createForm() {
   });
 }
 
-public  closeMe() {
-  this.dialogRef.close();
-}
 }

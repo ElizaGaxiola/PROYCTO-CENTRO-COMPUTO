@@ -16,7 +16,7 @@ import { InstalacionesService } from './instalaciones.service';
 import { InstalacionesAddComponent } from './instalaciones-add/instalaciones-add.component';
 import { InstalacionesGetComponent } from './instalaciones-get/instalaciones-get.component';
 import { InstalacionesEditComponent } from './instalaciones-edit/instalaciones-edit.component';
-import { MatDialogModule, MatButtonModule, MatCardModule, MatTableModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatDialogModule, MatButtonModule, MatCardModule, MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PersonalComponent } from './personal/personal.component';
@@ -25,6 +25,10 @@ import { InventarioService } from './inventario.service';
 import { InventarioAddComponent } from './inventario-add/inventario-add.component';
 import { InventarioGetComponent } from './inventario-get/inventario-get.component';
 import { InventarioEditComponent } from './inventario-edit/inventario-edit.component';
+import { EdificioComponent } from './edificio/edificio.component';
+import { EdificioAddComponent } from './edificio-add/edificio-add.component';
+import { EdificioEditComponent } from './edificio-edit/edificio-edit.component';
+import { EdificioGetComponent } from './edificio-get/edificio-get.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +43,20 @@ import { InventarioEditComponent } from './inventario-edit/inventario-edit.compo
     InventarioComponent,
     InventarioAddComponent,
     InventarioGetComponent,
-    InventarioEditComponent
+    InventarioEditComponent,
+    EdificioComponent,
+    EdificioAddComponent,
+    EdificioEditComponent,
+    EdificioGetComponent
+
   ],
   entryComponents: [
     InstalacionesAddComponent,
     InstalacionesEditComponent,
     InventarioAddComponent,
-    InventarioEditComponent
+    InventarioEditComponent,
+    EdificioAddComponent,
+    EdificioEditComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +73,8 @@ import { InventarioEditComponent } from './inventario-edit/inventario-edit.compo
     MatTableModule, 
     MatFormFieldModule,
     MatDialogModule,
-    MaterialModule
+    MaterialModule,
+    MatSortModule
   ],
   providers: [ InstalacionesService,InventarioService ],
   bootstrap: [AppComponent]

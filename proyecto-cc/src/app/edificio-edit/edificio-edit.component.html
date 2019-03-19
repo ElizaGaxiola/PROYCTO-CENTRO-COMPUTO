@@ -1,10 +1,10 @@
-<h1  mat-dialog-title>Editar Instalación</h1>
+<h1  mat-dialog-title>Editar Edificio</h1>
 <mat-dialog-content>
   <div class="card">
     <div class="card-body">
       <form [formGroup]="angForm" novalidate>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Clave" type="text" formControlName="clave" #clave [(ngModel)] = "instalacion.clave">
+          <input matInput placeholder="Clave" type="text" formControlName="clave" #clave [(ngModel)] = "edificio.clave">
           <mat-error *ngIf="angForm.controls['clave'].invalid && (angForm.controls['clave'].dirty || angForm.controls['clave'].touched)">
             <mat-error *ngIf="angForm.controls['clave'].errors.required">
               La clave es <strong>requerida</strong>
@@ -12,26 +12,18 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre" formControlName="nombre" #nombre [(ngModel)] = "instalacion.nombre">
+            <input matInput placeholder="Nombre" formControlName="nombre" #nombre [(ngModel)] = "edificio.nombre">
             <mat-error *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)">
               <mat-error *ngIf="angForm.controls['nombre'].errors.required">
                 El nombre es <strong>requerida</strong>
               </mat-error>
             </mat-error>
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Edificio" formControlName="edificio" #edificio [(ngModel)] = "instalacion.edificio">
-            <mat-error *ngIf="angForm.controls['edificio'].invalid && (angForm.controls['edificio'].dirty || angForm.controls['edificio'].touched)">
-              <mat-error *ngIf="angForm.controls['edificio'].errors.required">
-                El edificio es <strong>requerido</strong>
-              </mat-error>
-            </mat-error>
-        </mat-form-field>
         <div class="center-align">
-          <button (click)="updateInstalacion(clave.value, nombre.value, edificio.value)"
+          <button (click)="update(clave.value, nombre.value)"
             [disabled]="angForm.pristine || angForm.invalid" 
             class="btn btn-primary center-align">
-            Editar Instalación
+            Editar Edificio
           </button>
         </div>
       </form>

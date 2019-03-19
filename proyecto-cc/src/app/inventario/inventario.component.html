@@ -1,3 +1,9 @@
 <app-menu></app-menu>
-<button (click)="agregar()" class="btn btn-primary">Agregar</button>
-<app-inventario-get></app-inventario-get>
+<div class="container">
+    <div class="fixed-action-btn">
+        <a matTooltip="Agregar" (click)="agregar()" class="btn-floating green btn-large">
+            <i class="material-icons large">add</i>
+        </a>
+    </div>
+    <app-inventario-get></app-inventario-get>
+</div>

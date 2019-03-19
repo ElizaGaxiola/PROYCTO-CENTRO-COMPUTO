@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Agregar Instalación</h1>
+<h1 mat-dialog-title>Agregar Edificio</h1>
     <mat-dialog-content>
       <div class="card">
         <div class="card-body">
@@ -19,19 +19,11 @@
                         </mat-error>
                       </mat-error>
                   </mat-form-field>
-                  <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Edificio" formControlName="edificio" #edificio>
-                      <mat-error *ngIf="angForm.controls['edificio'].invalid && (angForm.controls['edificio'].dirty || angForm.controls['edificio'].touched)">
-                        <mat-error *ngIf="angForm.controls['edificio'].errors.required">
-                          El edificio es <strong>requerido</strong>
-                        </mat-error>
-                      </mat-error>
-                  </mat-form-field>
                   <div class="center-align">
-                    <button (click)="addInstalaciones(clave.value, nombre.value, edificio.value)"
+                    <button (click)="add(clave.value, nombre.value)"
                       [disabled]="angForm.pristine || angForm.invalid" 
                       class="btn btn-primary center-align">
-                      Agregar Instalación
+                      Agregar Edificio
                     </button>
                   </div>
             </form>

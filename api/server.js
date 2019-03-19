@@ -9,6 +9,7 @@ const express = require('express'),
     
 const instalacionesRoutes = require('./rutas/instalaciones.route');
 const inventarioRoutes = require('./rutas/inventario.route');
+const edificioRoutes = require('./rutas/edificio.route');
 
     mongoose.Promise = global.Promise;
     mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -21,8 +22,9 @@ const inventarioRoutes = require('./rutas/inventario.route');
     app.use(cors());
     app.use('/instalaciones', instalacionesRoutes);
     app.use('/inventario', inventarioRoutes);
+    app.use('/edificio', edificioRoutes);
     let port = process.env.PORT || 4000;
 
-    const server = app.listen(4000,function(){
+    const server = app.listen(port,function(){
         console.log('Listening on port ' + port);
     });

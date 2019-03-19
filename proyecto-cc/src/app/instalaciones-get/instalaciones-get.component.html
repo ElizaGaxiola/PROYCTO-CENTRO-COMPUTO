@@ -1,20 +1,40 @@
-<table class="table table-hover">
-  <thead>
-  <tr>
-      <td>Clave</td>
-      <td>Nombre</td>
-      <td>Edificio</td>
-      <td colspan="2">Acciones</td>
-  </tr>
-  </thead>
-
-  <tbody>
-      <tr *ngFor="let instalacion of instalaciones">
-          <td>{{ instalacion.clave }}</td>
-          <td>{{ instalacion.nombre }}</td>
-          <td>{{ instalacion.edificio }}</td>
-          <td><a (click) = "editInstalacion(instalacion._id)" class="btn btn-primary">Editar</a></td>
-          <td><a (click) = "deleteInstalacion(instalacion._id)" class="btn btn-danger">Eliminar</a></td>
+  <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- Clave -->
+      <ng-container matColumnDef="clave">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Clave </th>
+        <td mat-cell *matCellDef="let row"> {{ row.clave }} </td>
+      </ng-container>
+  
+      <!-- Nombre -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let row"> {{ row.nombre }} </td>
+      </ng-container>
+  
+      <!-- Edificio -->
+      <ng-container matColumnDef="edificio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Edificio </th>
+        <td mat-cell *matCellDef="let row"> {{ row.edificio }} </td>
+      </ng-container>
+  
+      <!-- Acciones -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+        <td mat-cell *matCellDef="let row">
+            <a matTooltip="Editar" (click) = "editInstalacion(row._id)" class="btn btn-edit"><i class="material-icons large">edit</i></a>
+            <a matTooltip="Eliminar" (click) = "deleteInstalacion(row._id)" class="btn btn-delete"><i class="material-icons large">delete_forever</i></a>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
       </tr>
-  </tbody>
-</table>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>

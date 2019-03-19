@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { InstalacionesAddComponent } from '../instalaciones-add/instalaciones-add.component';
-
+import { InstalacionesGetComponent } from '../instalaciones-get/instalaciones-get.component';
 
 @Component({
   selector: 'app-instalaciones',
@@ -9,9 +9,10 @@ import { InstalacionesAddComponent } from '../instalaciones-add/instalaciones-ad
   styleUrls: ['./instalaciones.component.css']
 })
 export class InstalacionesComponent implements OnInit {
-  
+  @ViewChild(InstalacionesGetComponent) instalacionesGetComponent: InstalacionesGetComponent;
 
   constructor(private  dialog:  MatDialog) {
+    
     
   }
   agregar(): void {
@@ -20,13 +21,12 @@ export class InstalacionesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('termino');
-      this.ngOnInit();
+      //llamar a obtener instalaciones de instalaciones-get
+      this.instalacionesGetComponent.obtenerInstalaciones();
     });
   }
 
   ngOnInit(): void {
-  
+    
   }
-
 }

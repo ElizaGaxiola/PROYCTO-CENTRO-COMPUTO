@@ -1,64 +1,56 @@
-<h1  mat-dialog-title>Agregar</h1>
+<h1 mat-dialog-title>Agregar Inventario</h1>
     <mat-dialog-content>
       <div class="card">
         <div class="card-body">
             <form [formGroup]="angForm" novalidate>
-                <div class="form-group">
-                    <label class="col-md-4">Serie</label>
-                    <input type="text" class="form-control" formControlName="serie" #serie />
-                  </div>
-                  <div *ngIf="angForm.controls['serie'].invalid && (angForm.controls['serie'].dirty || angForm.controls['serie'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['serie'].errors.required">
-                      El numero serie es necesario.
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-4">Marca </label>
-                    <input type="text" class="form-control" formControlName="marca" #marca />
-                  </div>
-                  <div *ngIf="angForm.controls['marca'].invalid && (angForm.controls['marca'].dirty || angForm.controls['marca'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['marca'].errors.required">
-                      La marca es requerida.
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-4">Modelo </label>
-                    <input type="text" class="form-control" formControlName="modelo" #modelo />
-                  </div>
-                  <div *ngIf="angForm.controls['modelo'].invalid && (angForm.controls['modelo'].dirty || angForm.controls['modelo'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['modelo'].errors.required">
-                      El modelo es requerido
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-4">Procesador </label>
-                    <input type="text" class="form-control" formControlName="procesador" #procesador />
-                  </div>
-                  <div *ngIf="angForm.controls['procesador'].invalid && (angForm.controls['procesador'].dirty || angForm.controls['procesador'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['procesador'].errors.required">
-                      El procesador es requerido
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-4">Fecha de Registro </label>
-                    <input type="text" class="form-control" formControlName="fechaRegistro" #fechaRegistro />
-                  </div>
-                  <div *ngIf="angForm.controls['fechaRegistro'].invalid && (angForm.controls['fechaRegistro'].dirty || angForm.controls['fechaRegistro'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['fechaRegistro'].errors.required">
-                      La fecha de registro es requerida
-                    </div>
-                  </div>
-                  <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Serie" formControlName="serie" #serie>
+                    <mat-error *ngIf="angForm.controls['serie'].invalid && (angForm.controls['serie'].dirty || angForm.controls['serie'].touched)">
+                      <mat-error *ngIf="angForm.controls['serie'].errors.required">
+                        La serie es <strong>requerida</strong>
+                      </mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Marca" formControlName="marca" #marca>
+                      <mat-error *ngIf="angForm.controls['marca'].invalid && (angForm.controls['marca'].dirty || angForm.controls['marca'].touched)">
+                        <mat-error *ngIf="angForm.controls['marca'].errors.required">
+                          El marca es <strong>requerida</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Modelo" formControlName="modelo" #modelo>
+                      <mat-error *ngIf="angForm.controls['modelo'].invalid && (angForm.controls['modelo'].dirty || angForm.controls['modelo'].touched)">
+                        <mat-error *ngIf="angForm.controls['modelo'].errors.required">
+                          El modelo es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Procesador" formControlName="procesador" #procesador>
+                      <mat-error *ngIf="angForm.controls['procesador'].invalid && (angForm.controls['procesador'].dirty || angForm.controls['procesador'].touched)">
+                        <mat-error *ngIf="angForm.controls['procesador'].errors.required">
+                          El procesador es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Fecha de registro" formControlName="fechaRegistro" #fechaRegistro>
+                        <mat-error *ngIf="angForm.controls['fechaRegistro'].invalid && (angForm.controls['fechaRegistro'].dirty || angForm.controls['fechaRegistro'].touched)">
+                          <mat-error *ngIf="angForm.controls['fechaRegistro'].errors.required">
+                            La fecha de registro es <strong>requerida</strong>
+                          </mat-error>
+                        </mat-error>
+                  </mat-form-field>
+                  <div class="center-align">
                     <button (click)="addInventario(serie.value, marca.value, modelo.value,procesador.value,fechaRegistro.value)"
-                        [disabled]="angForm.pristine || angForm.invalid" 
-                        class="btn btn-primary">
-                        Agregar Inventario
-                     </button>
-                </div>
+                      [disabled]="angForm.pristine || angForm.invalid" 
+                      class="btn btn-primary center-align">
+                      Agregar Inventario
+                    </button>
+                  </div>
             </form>
         </div>
       </div>
     </mat-dialog-content>
-<mat-dialog-actions>
-    <button  mat-raised-button (click)="closeMe()">Close</button>
-</mat-dialog-actions>

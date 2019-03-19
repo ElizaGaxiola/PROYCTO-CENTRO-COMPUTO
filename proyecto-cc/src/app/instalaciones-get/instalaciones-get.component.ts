@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import Instalaciones from '../Instalaciones';
 import { InstalacionesService } from '../instalaciones.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { InstalacionesEditComponent } from '../instalaciones-edit/instalaciones-edit.component';
-
 
 @Component({
   selector: 'app-instalaciones-get',
@@ -11,10 +10,14 @@ import { InstalacionesEditComponent } from '../instalaciones-edit/instalaciones-
   styleUrls: ['./instalaciones-get.component.css']
 })
 export class InstalacionesGetComponent implements OnInit {
+  displayedColumns: string[] = ['clave', 'nombre', 'edificio', 'acciones'];
+  dataSource: MatTableDataSource<Instalaciones>;
 
-  instalaciones: Instalaciones[];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private bs: InstalacionesService,private ins: InstalacionesService,private  dialog:  MatDialog) { }
+  constructor(private ins: InstalacionesService,private  dialog:  MatDialog) {
+   }
 
   editInstalacion(id): void {
     const dialogRef = this.dialog.open(InstalacionesEditComponent, {
@@ -23,21 +26,33 @@ export class InstalacionesGetComponent implements OnInit {
     });
         
     dialogRef.afterClosed().subscribe(result => {
-      console.log('termino');
+      this.obtenerInstalaciones();
     });
   }
   deleteInstalacion(id): void{
     this.ins.deleteInstalacion(id).subscribe(res => {
-      console.log('Deleted');
+      this.obtenerInstalaciones();
     });
   }
- 
-
   ngOnInit() {
-    this.bs
+    this.obtenerInstalaciones();
+  }
+  obtenerInstalaciones(){
+    this.ins
       .getInstalaciones()
       .subscribe((data: Instalaciones[]) => {
-        this.instalaciones = data;
+        // Assign the data to the data source for the table to render
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     });
   }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
+

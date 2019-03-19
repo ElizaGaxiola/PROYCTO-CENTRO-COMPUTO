@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject, Injectable } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { InventarioService } from '../inventario.service';
-import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
+import {MatDialogRef, MAT_DIALOG_DATA} from  '@angular/material';
 @Component({
   selector: 'app-inventario-add',
   templateUrl: './inventario-add.component.html',
@@ -13,10 +13,6 @@ export class InventarioAddComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private ins: InventarioService,private  dialogRef:  MatDialogRef<InventarioAddComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
     this.createForm();
-  }
-
-  public  closeMe() {
-    this.dialogRef.close();
   }
 
   createForm() {
@@ -32,6 +28,7 @@ export class InventarioAddComponent implements OnInit {
   addInventario(serie, marca, modelo,procesador,fechaRegistro) {
     console.log(serie, marca, modelo,procesador,fechaRegistro,'Activo');
     this.ins.addInventario(serie, marca, modelo,procesador,fechaRegistro,'Activo');
+    this.dialogRef.close();
   }
   ngOnInit() {
   }

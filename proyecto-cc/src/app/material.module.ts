@@ -2,10 +2,10 @@
 
 import { NgModule } from '@angular/core';
 
-import { MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { MatPaginatorModule,MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatTooltipModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule]
+  exports: [MatTooltipModule,FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatPaginatorModule]
 })
 export class MaterialModule {}

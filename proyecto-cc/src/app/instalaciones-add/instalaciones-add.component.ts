@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject, Injectable } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { InstalacionesService } from '../instalaciones.service';
-import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
+import {MatDialogRef, MAT_DIALOG_DATA} from  '@angular/material';
+
 
 @Component({
   selector: 'app-instalaciones-add',
@@ -16,10 +17,6 @@ export class InstalacionesAddComponent implements OnInit {
     this.createForm();
   }
 
-  public  closeMe() {
-    this.dialogRef.close();
-  }
-
   createForm() {
     this.angForm = this.fb.group({
       clave: ['', Validators.required ],
@@ -29,8 +26,8 @@ export class InstalacionesAddComponent implements OnInit {
   }
 
   addInstalaciones(clave, nombre, edificio) {
-    console.log(clave, nombre, edificio);
     this.ins.addInstalacion(clave, nombre, edificio);
+    this.dialogRef.close();
   }
 
   ngOnInit() {
