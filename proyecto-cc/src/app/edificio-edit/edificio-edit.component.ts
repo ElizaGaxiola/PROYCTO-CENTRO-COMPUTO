@@ -12,12 +12,17 @@ export class EdificioEditComponent implements OnInit {
   angForm: FormGroup;
   edificio: any = {};
   id:any;
-  constructor(private fb: FormBuilder,private ed: EdificiosService,private  dialogRef:  MatDialogRef<EdificioEditComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { }
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder,private ed: EdificiosService,private  dialogRef:  MatDialogRef<EdificioEditComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
     this.createForm();
+    this.id=data.id;
+    console.log(data.id);
+    this.ed.editEdificio(data.id).subscribe(res => {
+      this.edificio = res;
+    });
   }
-  updateInstalacion(clave,nombre){
+
+  ngOnInit() {}
+  update(clave,nombre){
     this.ed.updateEdificio(clave, nombre, 1, this.id);
     this.dialogRef.close();
   }

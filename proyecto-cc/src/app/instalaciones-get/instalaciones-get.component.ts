@@ -27,6 +27,7 @@ export class InstalacionesGetComponent implements OnInit {
         
     dialogRef.afterClosed().subscribe(result => {
       this.obtenerInstalaciones();
+      console.log("obtener");
     });
   }
   deleteInstalacion(id): void{
