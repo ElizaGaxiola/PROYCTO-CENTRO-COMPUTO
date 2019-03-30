@@ -2,7 +2,8 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { InstalacionesService } from '../instalaciones.service';
 import {MatDialogRef, MAT_DIALOG_DATA} from  '@angular/material';
-
+import { EdificiosService } from '../edificios.service';
+import Edificio from '../Edificio';
 
 @Component({
   selector: 'app-instalaciones-add',
@@ -12,9 +13,9 @@ import {MatDialogRef, MAT_DIALOG_DATA} from  '@angular/material';
 export class InstalacionesAddComponent implements OnInit {
 
   angForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private ins: InstalacionesService,private  dialogRef:  MatDialogRef<InstalacionesAddComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) {
-    this.createForm();
+  edificios: Edificio[] = [];
+  
+  constructor(private fb: FormBuilder,private ed: EdificiosService, private ins: InstalacionesService,private  dialogRef:  MatDialogRef<InstalacionesAddComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) {
   }
 
   createForm() {
@@ -26,11 +27,21 @@ export class InstalacionesAddComponent implements OnInit {
   }
 
   addInstalaciones(clave, nombre, edificio) {
-    this.ins.addInstalacion(clave, nombre, edificio);
+    this.ins.addInstalacion(clave, nombre, edificio,1);
     this.dialogRef.close();
   }
 
+  getEdificios(){
+    this.ed
+      .getEdificios()
+      .subscribe((data: Edificio[]) => {
+       this.edificios = data;
+    });
+  }
+
   ngOnInit() {
+    this.createForm();
+    this.getEdificios();
   }
 
 }

@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import Edificio from '../Edificio';
 import { EdificiosService } from '../edificios.service';
 import { EdificioEditComponent } from '../edificio-edit/edificio-edit.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-edificio-get',
   templateUrl: './edificio-get.component.html',
@@ -11,6 +12,7 @@ import { EdificioEditComponent } from '../edificio-edit/edificio-edit.component'
 export class EdificioGetComponent implements OnInit {
   displayedColumns: string[] = ['clave', 'nombre', 'estatus', 'acciones'];
   dataSource: MatTableDataSource<Edificio>;
+  edificio: any = {};
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

@@ -57,6 +57,16 @@ a.btn.btn-edit {
   margin: 3%;
   color: white;
 }
+a.btn.btn-baja {
+  background-color: #d50000;
+  margin: 3%;
+  color: #FFFFFF;
+}
+a.btn.btn-alta {
+  background-color: #10a124;
+  margin: 3%;
+  color: white;
+}
 a.btn.btn-delete {
   background-color: #d50000;
   margin: 3%;

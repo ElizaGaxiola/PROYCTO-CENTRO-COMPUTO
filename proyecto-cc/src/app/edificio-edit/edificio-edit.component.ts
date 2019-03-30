@@ -15,15 +15,19 @@ export class EdificioEditComponent implements OnInit {
   constructor(private fb: FormBuilder,private ed: EdificiosService,private  dialogRef:  MatDialogRef<EdificioEditComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
     this.createForm();
     this.id=data.id;
-    console.log(data.id);
     this.ed.editEdificio(data.id).subscribe(res => {
       this.edificio = res;
+      this.angForm=this.fb.group({
+        clave: this.edificio.clave,
+        nombre: this.edificio.nombre,
+        estatus: this.edificio.estatus
+      });
     });
   }
 
   ngOnInit() {}
-  update(clave,nombre){
-    this.ed.updateEdificio(clave, nombre, 1, this.id);
+  update(clave,nombre,estatus){
+    this.ed.updateEdificio(clave, nombre, estatus, this.id);
     this.dialogRef.close();
   }
 
@@ -31,7 +35,7 @@ export class EdificioEditComponent implements OnInit {
     this.angForm = this.fb.group({
       clave: ['', Validators.required ],
       nombre: ['', Validators.required ],
-      estatus: ['']
+      estatus: ['', Validators.required ],
     });
   }
 

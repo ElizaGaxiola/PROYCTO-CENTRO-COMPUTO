@@ -28,7 +28,7 @@ export class EdificiosService {
   editEdificio(id) {
     return this
             .http
-            .get(`${this.uri}/edit/${id}`);
+            .get(`${this.uri}/edit/${id}`);   
   }
   updateEdificio(clave, nombre, estatus, id) {
 
@@ -41,6 +41,9 @@ export class EdificiosService {
       .http
       .post(`${this.uri}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
+      return this
+      .http
+      .get(`${this.uri}/edit/${id}`); 
   }
   deleteEdificio(id) {
     return this

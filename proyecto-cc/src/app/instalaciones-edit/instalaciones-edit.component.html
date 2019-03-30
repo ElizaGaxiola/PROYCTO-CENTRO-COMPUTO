@@ -4,7 +4,7 @@
     <div class="card-body">
       <form [formGroup]="angForm" novalidate>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Clave" type="text" formControlName="clave" #clave [(ngModel)] = "instalacion.clave">
+          <input matInput placeholder="Clave" type="text" formControlName="clave" #clave>
           <mat-error *ngIf="angForm.controls['clave'].invalid && (angForm.controls['clave'].dirty || angForm.controls['clave'].touched)">
             <mat-error *ngIf="angForm.controls['clave'].errors.required">
               La clave es <strong>requerida</strong>
@@ -12,7 +12,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre" formControlName="nombre" #nombre [(ngModel)] = "instalacion.nombre">
+            <input matInput placeholder="Nombre" formControlName="nombre" #nombre>
             <mat-error *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)">
               <mat-error *ngIf="angForm.controls['nombre'].errors.required">
                 El nombre es <strong>requerida</strong>
@@ -20,15 +20,37 @@
             </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Edificio" formControlName="edificio" #edificio [(ngModel)] = "instalacion.edificio">
+            <mat-label>Edificio</mat-label>
+            <select matNativeControl formControlName="edificio" #edificio>
+              <option *ngFor="let edi of edificios" [value]="edi.clave">
+                {{edi.nombre}}
+              </option>
+            </select>
             <mat-error *ngIf="angForm.controls['edificio'].invalid && (angForm.controls['edificio'].dirty || angForm.controls['edificio'].touched)">
               <mat-error *ngIf="angForm.controls['edificio'].errors.required">
                 El edificio es <strong>requerido</strong>
               </mat-error>
             </mat-error>
         </mat-form-field>
+         
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Estatus</mat-label>
+            <select matNativeControl formControlName="estatus" #estatus>
+              <option *ngFor="let e of array" [value]="e.value">
+                {{e.viewValue}}
+              </option>
+            </select>
+            <mat-error *ngIf="angForm.controls['estatus'].invalid && (angForm.controls['estatus'].dirty || angForm.controls['estatus'].touched)">
+              <mat-error *ngIf="angForm.controls['estatus'].errors.required">
+                El estatus es <strong>requerido</strong>
+              </mat-error>
+            </mat-error>
+        </mat-form-field>
+
+       
         <div class="center-align">
-          <button (click)="updateInstalacion(clave.value, nombre.value, edificio.value)"
+          <button (click)="updateInstalacion(clave.value, nombre.value, edificio.value,estatus.value)"
             [disabled]="angForm.pristine || angForm.invalid" 
             class="btn btn-primary center-align">
             Editar Instalación

@@ -20,12 +20,17 @@
                       </mat-error>
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Edificio" formControlName="edificio" #edificio>
-                      <mat-error *ngIf="angForm.controls['edificio'].invalid && (angForm.controls['edificio'].dirty || angForm.controls['edificio'].touched)">
-                        <mat-error *ngIf="angForm.controls['edificio'].errors.required">
-                          El edificio es <strong>requerido</strong>
-                        </mat-error>
+                    <mat-label>Edificio</mat-label>
+                    <mat-select formControlName="edificio" #edificio>
+                      <mat-option *ngFor="let edi of edificios" [value]="edi.clave">
+                        {{edi.nombre}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="angForm.controls['edificio'].invalid && (angForm.controls['edificio'].dirty || angForm.controls['edificio'].touched)">
+                      <mat-error *ngIf="angForm.controls['edificio'].errors.required">
+                        El edificio es <strong>requerido</strong>
                       </mat-error>
+                    </mat-error>
                   </mat-form-field>
                   <div class="center-align">
                     <button (click)="addInstalaciones(clave.value, nombre.value, edificio.value)"

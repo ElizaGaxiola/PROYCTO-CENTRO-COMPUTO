@@ -16,7 +16,6 @@ import { InstalacionesService } from './instalaciones.service';
 import { InstalacionesAddComponent } from './instalaciones-add/instalaciones-add.component';
 import { InstalacionesGetComponent } from './instalaciones-get/instalaciones-get.component';
 import { InstalacionesEditComponent } from './instalaciones-edit/instalaciones-edit.component';
-import { MatDialogModule, MatButtonModule, MatCardModule, MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PersonalComponent } from './personal/personal.component';
@@ -29,6 +28,44 @@ import { EdificioComponent } from './edificio/edificio.component';
 import { EdificioAddComponent } from './edificio-add/edificio-add.component';
 import { EdificioEditComponent } from './edificio-edit/edificio-edit.component';
 import { EdificioGetComponent } from './edificio-get/edificio-get.component';
+import {
+  MatFormFieldModule,
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -74,7 +111,42 @@ import { EdificioGetComponent } from './edificio-get/edificio-get.component';
     MatFormFieldModule,
     MatDialogModule,
     MaterialModule,
-    MatSortModule
+    MatSortModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
   ],
   providers: [ InstalacionesService,InventarioService ],
   bootstrap: [AppComponent]

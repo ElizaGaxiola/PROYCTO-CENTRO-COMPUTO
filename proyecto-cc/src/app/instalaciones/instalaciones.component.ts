@@ -21,7 +21,6 @@ export class InstalacionesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //llamar a obtener instalaciones de instalaciones-get
       this.instalacionesGetComponent.obtenerInstalaciones();
     });
   }

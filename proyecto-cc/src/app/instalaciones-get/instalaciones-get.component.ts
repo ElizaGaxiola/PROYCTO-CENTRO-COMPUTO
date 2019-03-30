@@ -10,7 +10,7 @@ import { InstalacionesEditComponent } from '../instalaciones-edit/instalaciones-
   styleUrls: ['./instalaciones-get.component.css']
 })
 export class InstalacionesGetComponent implements OnInit {
-  displayedColumns: string[] = ['clave', 'nombre', 'edificio', 'acciones'];
+  displayedColumns: string[] = ['clave', 'nombre', 'edificio','estatus', 'acciones'];
   dataSource: MatTableDataSource<Instalaciones>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

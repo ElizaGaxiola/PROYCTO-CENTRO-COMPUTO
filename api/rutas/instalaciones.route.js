@@ -49,6 +49,7 @@ instalacionesRoutes.route('/update/:id').post(function (req, res) {
       instalaciones.clave = req.body.clave;
       instalaciones.nombre = req.body.nombre;
       instalaciones.edificio = req.body.edificio;
+      instalaciones.estatus = req.body.estatus;
       instalaciones.save().then(instalaciones => {
         res.json('Actualización completa');
       }).catch(err => {

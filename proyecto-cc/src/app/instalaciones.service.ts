@@ -10,11 +10,12 @@ export class InstalacionesService {
 
   constructor(private http: HttpClient) { }
 
-  addInstalacion(clave, nombre, edificio) {
+  addInstalacion(clave, nombre, edificio,estatus) {
     const obj = {
       clave: clave,
       nombre: nombre,
-      edificio: edificio
+      edificio: edificio,
+      estatus: estatus
     };
     console.log(obj);
     this.http.post(`${this.uri}/add`, obj)
@@ -30,12 +31,13 @@ export class InstalacionesService {
             .http
             .get(`${this.uri}/edit/${id}`);
   }
-  updateInstalacion(clave, nombre, edificio, id) {
+  updateInstalacion(clave, nombre, edificio,estatus, id) {
 
     const obj = {
         clave: clave,
         nombre: nombre,
-        edificio: edificio
+        edificio: edificio,
+        estatus: estatus
       };
     this
       .http

@@ -13,6 +13,9 @@ let Instalaciones = new Schema({
   },
   edificio: {
     type: Number
+  },
+  estatus: {
+    type: Number
   }
 },{
     collection: 'instalaciones'
