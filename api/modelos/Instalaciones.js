@@ -12,7 +12,7 @@ let Instalaciones = new Schema({
     type: String
   },
   edificio: {
-    type: Number
+    type: String
   },
   estatus: {
     type: Number

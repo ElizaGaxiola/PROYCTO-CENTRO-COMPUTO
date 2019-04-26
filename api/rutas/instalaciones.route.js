@@ -9,6 +9,7 @@ let Instalaciones = require('../modelos/Instalaciones');
 
 // Defined store route
 instalacionesRoutes.route('/add').post(function (req, res) {
+  console.log(req.body)
   let instalaciones = new Instalaciones(req.body);
   instalaciones.save()
     .then(instalaciones => {
