@@ -46,10 +46,13 @@ inventarioRoutes.route('/update/:id').post(function (req, res) {
     if (!inventario){
       res.json('No se puede cargar el documento');
     }else{
+        inventario.tipo = req.body.tipo;
         inventario.serie = req.body.serie;
         inventario.marca = req.body.marca;
         inventario.modelo = req.body.modelo;
         inventario.procesador = req.body.procesador;
+        inventario.discoDuro = req.body.discoDuro;
+        inventario.ram = req.body.ram;
         inventario.fechaRegistro = req.body.fechaRegistro;
         inventario.estatus = req.body.estatus;
         inventario.save().then(inventario => {

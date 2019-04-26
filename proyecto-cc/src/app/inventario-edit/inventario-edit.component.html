@@ -3,6 +3,19 @@
       <div class="card">
         <div class="card-body">
             <form [formGroup]="angForm" novalidate>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Tipo Dispositivo</mat-label>
+                    <mat-select formControlName="tipo" #tipo>
+                      <mat-option *ngFor="let tips of tipos" [value]="tips.value">
+                        {{tips.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="angForm.controls['tipo'].invalid && (angForm.controls['tipo'].dirty || angForm.controls['tipo'].touched)">
+                      <mat-error *ngIf="angForm.controls['tipo'].errors.required">
+                        El tipo de dispositivo es <strong>requerido</strong>
+                      </mat-error>
+                    </mat-error>
+                  </mat-form-field>
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Serie" formControlName="serie" #serie [(ngModel)] = "inventario.serie">
                     <mat-error *ngIf="angForm.controls['serie'].invalid && (angForm.controls['serie'].dirty || angForm.controls['serie'].touched)">
@@ -36,6 +49,22 @@
                       </mat-error>
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Disco Duro" formControlName="discoDuro" #discoDuro>
+                      <mat-error *ngIf="angForm.controls['discoDuro'].invalid && (angForm.controls['discoDuro'].dirty || angForm.controls['discoDuro'].touched)">
+                        <mat-error *ngIf="angForm.controls['discoDuro'].errors.required">
+                          El discoDuro es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Ram" formControlName="ram" #ram>
+                      <mat-error *ngIf="angForm.controls['ram'].invalid && (angForm.controls['ram'].dirty || angForm.controls['ram'].touched)">
+                        <mat-error *ngIf="angForm.controls['ram'].errors.required">
+                          La Ram es <strong>requerida</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
                         <input matInput placeholder="Fecha de registro" formControlName="fechaRegistro" #fechaRegistro [(ngModel)] = "inventario.fechaRegistro">
                         <mat-error *ngIf="angForm.controls['fechaRegistro'].invalid && (angForm.controls['fechaRegistro'].dirty || angForm.controls['fechaRegistro'].touched)">
                           <mat-error *ngIf="angForm.controls['fechaRegistro'].errors.required">
@@ -43,8 +72,23 @@
                           </mat-error>
                         </mat-error>
                   </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Estatus</mat-label>
+                      <select matNativeControl formControlName="estatus" #estatus>
+                        <option *ngFor="let e of array" [value]="e.value">
+                          {{e.viewValue}}
+                        </option>
+                      </select>
+                      <mat-error *ngIf="angForm.controls['estatus'].invalid && (angForm.controls['estatus'].dirty || angForm.controls['estatus'].touched)">
+                        <mat-error *ngIf="angForm.controls['estatus'].errors.required">
+                          El estatus es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  
                   <div class="center-align">
-                    <button (click)="addInventario(serie.value, marca.value, modelo.value,procesador.value,fechaRegistro.value)"
+                    <button (click)="addInventario(tipo.value,serie.value, marca.value, modelo.value,procesador.value,discoDuro.value,ram.value,fechaRegistro.value)"
                       [disabled]="angForm.pristine || angForm.invalid" 
                       class="btn btn-primary center-align">
                       Modificar Inventario

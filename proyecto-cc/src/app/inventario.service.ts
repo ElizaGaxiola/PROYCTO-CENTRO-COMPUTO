@@ -9,12 +9,15 @@ export class InventarioService {
   uri = 'http://localhost:4000/inventario';
 
   constructor(private http: HttpClient) { }
-  addInventario(serie, marca, modelo, procesador, fechaRegistro,estatus) {
+  addInventario(tipo,serie, marca, modelo, procesador,discoDuro,ram, fechaRegistro,estatus) {
     const obj = {
+      tipo: tipo,
       serie: serie,
       marca: marca,
       modelo: modelo,
       procesador: procesador,
+      discoDuro:discoDuro,
+      ram:ram,
       fechaRegistro: fechaRegistro,
       estatus: estatus
 
@@ -33,13 +36,16 @@ export class InventarioService {
             .http
             .get(`${this.uri}/edit/${id}`);
   }
-  updateInventario(serie, marca, modelo, procesador, fechaRegistro,estatus, id) {
+  updateInventario(tipo,serie, marca, modelo, procesador,discoDuro,ram, fechaRegistro,estatus, id) {
 
     const obj = {
+      tipo: tipo,
       serie: serie,
       marca: marca,
       modelo: modelo,
       procesador: procesador,
+      discoDuro:discoDuro,
+      ram:ram,
       fechaRegistro: fechaRegistro,
       estatus: estatus
       };

@@ -9,7 +9,7 @@ import { InventarioEditComponent } from '../inventario-edit/inventario-edit.comp
   styleUrls: ['./inventario-get.component.css']
 })
 export class InventarioGetComponent implements OnInit {
-  displayedColumns: string[] = ['serie', 'marca', 'modelo', 'procesador','fechaRegistro','estatus','acciones'];
+  displayedColumns: string[] = ['tipo','serie', 'marca', 'modelo', 'procesador','discoDuro','ram','fechaRegistro','estatus','acciones'];
   dataSource: MatTableDataSource<Inventario>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

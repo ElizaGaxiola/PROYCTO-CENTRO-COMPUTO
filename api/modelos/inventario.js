@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 
 //Definir la coleccion y el esquema para instalaciones
 let Inventario = new Schema({
+  tipo: {
+    type: String
+  },
   serie: {
     type: String
   },
@@ -17,11 +20,17 @@ let Inventario = new Schema({
   procesador: {
     type: String
   },
+  discoDuro: {
+    type: String
+  },
+  ram: {
+    type: String
+  },
   fechaRegistro: {
     type: String
   },
   estatus: {
-    type: String
+    type: Number
   }
 },{
     collection: 'inventario'
