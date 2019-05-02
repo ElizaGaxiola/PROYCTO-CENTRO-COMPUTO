@@ -6,28 +6,33 @@ import { AppComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
-import { HomeComponent } from './home/home.component';
-import { InstalacionesComponent } from './instalaciones/instalaciones.component';
+import { HomeComponent } from './components/home/home.component';
+import { InstalacionesComponent } from './components/instalaciones/instalaciones.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { InstalacionesService } from './instalaciones.service';
-import { InstalacionesAddComponent } from './instalaciones-add/instalaciones-add.component';
-import { InstalacionesGetComponent } from './instalaciones-get/instalaciones-get.component';
-import { InstalacionesEditComponent } from './instalaciones-edit/instalaciones-edit.component';
+import { InstalacionesService } from './services/instalaciones.service';
+import { InstalacionesAddComponent } from './components/instalaciones-add/instalaciones-add.component';
+import { InstalacionesGetComponent } from './components/instalaciones-get/instalaciones-get.component';
+import { InstalacionesEditComponent } from './components/instalaciones-edit/instalaciones-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { PersonalComponent } from './personal/personal.component';
-import { InventarioComponent } from './inventario/inventario.component';
-import { InventarioService } from './inventario.service';
-import { InventarioAddComponent } from './inventario-add/inventario-add.component';
-import { InventarioGetComponent } from './inventario-get/inventario-get.component';
-import { InventarioEditComponent } from './inventario-edit/inventario-edit.component';
-import { EdificioComponent } from './edificio/edificio.component';
-import { EdificioAddComponent } from './edificio-add/edificio-add.component';
-import { EdificioEditComponent } from './edificio-edit/edificio-edit.component';
-import { EdificioGetComponent } from './edificio-get/edificio-get.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { UsuarioAddComponent } from './components/usuario-add/usuario-add.component';
+import { UsuarioGetComponent } from './components/usuario-get/usuario-get.component';
+import { UsuarioEditComponent } from './components/usuario-edit/usuario-edit.component';
+import { UsuarioService } from './services/usuario.service';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { InventarioService } from './services/inventario.service';
+import { InventarioAddComponent } from './components/inventario-add/inventario-add.component';
+import { InventarioGetComponent } from './components/inventario-get/inventario-get.component';
+import { InventarioEditComponent } from './components/inventario-edit/inventario-edit.component';
+import { EdificioComponent } from './components/edificio/edificio.component';
+import { EdificioAddComponent } from './components/edificio-add/edificio-add.component';
+import { EdificioEditComponent } from './components/edificio-edit/edificio-edit.component';
+import { EdificioGetComponent } from './components/edificio-get/edificio-get.component';
+import { LoginComponent } from './components/login/login.component';
 import {
   MatFormFieldModule,
   MatAutocompleteModule,
@@ -66,6 +71,7 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { EdificiosService } from './services/edificios.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +82,10 @@ import {
     InstalacionesAddComponent,
     InstalacionesGetComponent,
     InstalacionesEditComponent,
-    PersonalComponent,
+    UsuarioComponent,
+    UsuarioAddComponent,
+    UsuarioEditComponent,
+    UsuarioGetComponent,
     InventarioComponent,
     InventarioAddComponent,
     InventarioGetComponent,
@@ -84,7 +93,8 @@ import {
     EdificioComponent,
     EdificioAddComponent,
     EdificioEditComponent,
-    EdificioGetComponent
+    EdificioGetComponent,
+    LoginComponent
 
   ],
   entryComponents: [
@@ -93,7 +103,9 @@ import {
     InventarioAddComponent,
     InventarioEditComponent,
     EdificioAddComponent,
-    EdificioEditComponent
+    EdificioEditComponent,
+    UsuarioAddComponent,
+    UsuarioEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -148,7 +160,7 @@ import {
     MatTooltipModule,
     MatTreeModule,
   ],
-  providers: [ InstalacionesService,InventarioService ],
+  providers: [ InstalacionesService,InventarioService,UsuarioService,EdificiosService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

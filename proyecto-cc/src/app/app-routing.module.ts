@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { InstalacionesComponent } from './instalaciones/instalaciones.component';
-import { InventarioComponent } from './inventario/inventario.component';
+import { HomeComponent } from './components/home/home.component';
+import { InstalacionesComponent } from './components/instalaciones/instalaciones.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { LoginComponent } from './components/login/login.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 import { from } from 'rxjs';
-import { EdificioComponent } from './edificio/edificio.component';
+import { EdificioComponent } from './components/edificio/edificio.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: 'edificios',
     component: EdificioComponent
+  },
+  {
+    path: 'usuario',
+    component: UsuarioComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

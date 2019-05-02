@@ -10,6 +10,7 @@ const express = require('express'),
 const instalacionesRoutes = require('./rutas/instalaciones.route');
 const inventarioRoutes = require('./rutas/inventario.route');
 const edificioRoutes = require('./rutas/edificio.route');
+const usuarioRoutes = require('./rutas/usuario.route');
 
     mongoose.Promise = global.Promise;
     mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -23,6 +24,7 @@ const edificioRoutes = require('./rutas/edificio.route');
     app.use('/instalaciones', instalacionesRoutes);
     app.use('/inventario', inventarioRoutes);
     app.use('/edificio', edificioRoutes);
+    app.use('/usuario', usuarioRoutes);
     let port = process.env.PORT || 4000;
 
     const server = app.listen(port,function(){

@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>Agregar Usuario</h1>
+    <mat-dialog-content>
+      <div class="card">
+        <div class="card-body">
+            <form [formGroup]="angForm" novalidate>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Tipo Usuario</mat-label>
+                    <mat-select formControlName="tipo" #tipo>
+                      <mat-option *ngFor="let tips of tipos" [value]="tips.value">
+                        {{tips.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="angForm.controls['tipo'].invalid && (angForm.controls['tipo'].dirty || angForm.controls['tipo'].touched)">
+                      <mat-error *ngIf="angForm.controls['tipo'].errors.required">
+                        El tipo de usuario es <strong>requerido</strong>
+                      </mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Matricula" formControlName="matricula" #matricula>
+                    <mat-error *ngIf="angForm.controls['matricula'].invalid && (angForm.controls['matricula'].dirty || angForm.controls['matricula'].touched)">
+                      <mat-error *ngIf="angForm.controls['matricula'].errors.required">
+                        La matricula es <strong>requerida</strong>
+                      </mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Nombre" formControlName="nombre" #nombre>
+                      <mat-error *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)">
+                        <mat-error *ngIf="angForm.controls['nombre'].errors.required">
+                          El nombre es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Apellido" formControlName="apellido" #apellido>
+                      <mat-error *ngIf="angForm.controls['apellido'].invalid && (angForm.controls['apellido'].dirty || angForm.controls['apellido'].touched)">
+                        <mat-error *ngIf="angForm.controls['apellido'].errors.required">
+                          El apellido es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" formControlName="password" #password>
+                    <mat-error *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)">
+                      <mat-error *ngIf="angForm.controls['password'].errors.required">
+                        Una contraseña es <strong>requerida</strong>
+                      </mat-error>
+                    </mat-error>
+                </mat-form-field>
+                  <div class="center-align">
+                    <button (click)="addUsuario(tipo.value,matricula.value, nombre.value, apellido.value,password.value)"
+                      [disabled]="angForm.pristine || angForm.invalid" 
+                      class="btn btn-primary center-align">
+                      Agregar Usuario
+                    </button>
+                  </div>
+            </form>
+        </div>
+      </div>
+    </mat-dialog-content>
