@@ -1,14 +1,14 @@
 import { Component, OnInit,Inject, Injectable } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
-import { InventarioService } from '../../services/inventario.service';
+import { InventarioEquipoService } from '../../services/inventarioEquipo.service';
 import {MatDialogRef, MAT_DIALOG_DATA} from  '@angular/material';
 import Tipo from '../../models/Tipo';
 @Component({
-  selector: 'app-inventario-add',
-  templateUrl: './inventario-add.component.html',
-  styleUrls: ['./inventario-add.component.css']
+  selector: 'app-inventario-equipo-add',
+  templateUrl: './inventario-equipo-add.component.html',
+  styleUrls: ['./inventario-equipo-add.component.css']
 })
-export class InventarioAddComponent implements OnInit {
+export class InventarioEquipoAddComponent implements OnInit {
 
   angForm: FormGroup;
   tipos: Tipo[] = [
@@ -17,7 +17,7 @@ export class InventarioAddComponent implements OnInit {
     {value: 'PROYECTOR', viewValue: 'PROYECTOR'}
   ];
 
-  constructor(private fb: FormBuilder, private ins: InventarioService,private  dialogRef:  MatDialogRef<InventarioAddComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
+  constructor(private fb: FormBuilder, private ins: InventarioEquipoService,private  dialogRef:  MatDialogRef<InventarioEquipoAddComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
     this.createForm();
   }
 

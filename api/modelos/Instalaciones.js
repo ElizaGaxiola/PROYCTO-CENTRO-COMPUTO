@@ -14,6 +14,12 @@ let Instalaciones = new Schema({
   edificio: {
     type: String
   },
+  equipo: {
+    type: String
+  },
+  reponsable:{
+    type: String
+  },
   estatus: {
     type: Number
   }

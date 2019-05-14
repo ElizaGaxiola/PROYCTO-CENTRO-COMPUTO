@@ -1,24 +1,24 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import Inventario from '../../models/Inventario';
-import { InventarioService } from '../../services/inventario.service';
+import { InventarioEquipoService } from '../../services/inventarioEquipo.service';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { InventarioEditComponent } from '../inventario-edit/inventario-edit.component';
+import { InventarioEquipoEditComponent } from '../inventario-equipo-edit/inventario-equipo-edit.component';
 @Component({
-  selector: 'app-inventario-get',
-  templateUrl: './inventario-get.component.html',
-  styleUrls: ['./inventario-get.component.css']
+  selector: 'app-inventario-equipo-get',
+  templateUrl: './inventario-equipo-get.component.html',
+  styleUrls: ['./inventario-equipo-get.component.css']
 })
-export class InventarioGetComponent implements OnInit {
+export class InventarioEquipoGetComponent implements OnInit {
   displayedColumns: string[] = ['tipo','serie', 'marca', 'modelo', 'procesador','discoDuro','ram','fechaRegistro','estatus','acciones'];
   dataSource: MatTableDataSource<Inventario>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private ins: InventarioService,private  dialog:  MatDialog) { }
+  constructor(private ins: InventarioEquipoService,private  dialog:  MatDialog) { }
 
   editInventario(id): void {
-    const dialogRef = this.dialog.open(InventarioEditComponent, {
+    const dialogRef = this.dialog.open(InventarioEquipoEditComponent, {
       width: '500px',
       data: {id: id}
     });

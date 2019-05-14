@@ -8,9 +8,10 @@ const express = require('express'),
     config = require('./DB');
     
 const instalacionesRoutes = require('./rutas/instalaciones.route');
-const inventarioRoutes = require('./rutas/inventario.route');
+const inventarioEquipoRoutes = require('./rutas/inventarioEquipo.route');
 const edificioRoutes = require('./rutas/edificio.route');
 const usuarioRoutes = require('./rutas/usuario.route');
+const categoriaRoutes = require('./rutas/categoria.route');
 
     mongoose.Promise = global.Promise;
     mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -22,9 +23,10 @@ const usuarioRoutes = require('./rutas/usuario.route');
     app.use(bodyParser.json());
     app.use(cors());
     app.use('/instalaciones', instalacionesRoutes);
-    app.use('/inventario', inventarioRoutes);
+    app.use('/inventarioEquipo', inventarioEquipoRoutes);
     app.use('/edificio', edificioRoutes);
     app.use('/usuario', usuarioRoutes);
+    app.use('/categoria', categoriaRoutes);
     let port = process.env.PORT || 4000;
 
     const server = app.listen(port,function(){

@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class InventarioService {
+export class InventarioEquipoService {
 
-  uri = 'http://localhost:4000/inventario';
+  uri = 'http://localhost:4000/inventarioEquipo';
 
   constructor(private http: HttpClient) { }
   addInventario(tipo,serie, marca, modelo, procesador,discoDuro,ram, fechaRegistro,estatus) {

@@ -1,14 +1,14 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
-import { InventarioService } from '../../services/inventario.service';
+import { InventarioEquipoService } from '../../services/inventarioEquipo.service';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
 import Tipo from '../../models/Tipo';
 @Component({
-  selector: 'app-inventario-edit',
-  templateUrl: './inventario-edit.component.html',
-  styleUrls: ['./inventario-edit.component.css']
+  selector: 'app-inventario-equipo-edit',
+  templateUrl: './inventario-equipo-edit.component.html',
+  styleUrls: ['./inventario-equipo-edit.component.css']
 })
-export class InventarioEditComponent implements OnInit {
+export class InventarioEquipoEditComponent implements OnInit {
  
   angForm: FormGroup;
   inventario: any = {};
@@ -22,7 +22,7 @@ export class InventarioEditComponent implements OnInit {
     {value: '0', viewValue: 'Inactivo'},
     {value: '1', viewValue: 'Activo'}
   ];
-  constructor(private fb: FormBuilder,private ins: InventarioService,private  dialogRef:  MatDialogRef<InventarioEditComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
+  constructor(private fb: FormBuilder,private ins: InventarioEquipoService,private  dialogRef:  MatDialogRef<InventarioEquipoEditComponent>, @Inject(MAT_DIALOG_DATA) public  data:  any) { 
     this.id=data.id;
     this.ins.editInventario(data.id).subscribe(res => {
       this.inventario = res;

@@ -23,15 +23,21 @@ import { UsuarioAddComponent } from './components/usuario-add/usuario-add.compon
 import { UsuarioGetComponent } from './components/usuario-get/usuario-get.component';
 import { UsuarioEditComponent } from './components/usuario-edit/usuario-edit.component';
 import { UsuarioService } from './services/usuario.service';
-import { InventarioComponent } from './components/inventario/inventario.component';
-import { InventarioService } from './services/inventario.service';
-import { InventarioAddComponent } from './components/inventario-add/inventario-add.component';
-import { InventarioGetComponent } from './components/inventario-get/inventario-get.component';
-import { InventarioEditComponent } from './components/inventario-edit/inventario-edit.component';
+import { InventarioEquipoComponent } from './components/inventario-equipo/inventario-equipo.component';
+import { InventarioEquipoService } from './services/inventarioEquipo.service';
+import { InventarioEquipoAddComponent } from './components/inventario-equipo-add/inventario-equipo-add.component';
+import { InventarioEquipoGetComponent } from './components/inventario-equipo-get/inventario-equipo-get.component';
+import { InventarioEquipoEditComponent } from './components/inventario-equipo-edit/inventario-equipo-edit.component';
 import { EdificioComponent } from './components/edificio/edificio.component';
 import { EdificioAddComponent } from './components/edificio-add/edificio-add.component';
 import { EdificioEditComponent } from './components/edificio-edit/edificio-edit.component';
 import { EdificioGetComponent } from './components/edificio-get/edificio-get.component';
+import { EdificiosService } from './services/edificios.service';
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { CategoriaAddComponent } from './components/categoria-add/categoria-add.component';
+import { CategoriaEditComponent } from './components/categoria-edit/categoria-edit.component';
+import { CategoriaGetComponent } from './components/categoria-get/categoria-get.component';
+import { CategoriaService } from './services/categoria.service';
 import { LoginComponent } from './components/login/login.component';
 import {
   MatFormFieldModule,
@@ -71,7 +77,6 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import { EdificiosService } from './services/edificios.service';
 
 @NgModule({
   declarations: [
@@ -86,26 +91,32 @@ import { EdificiosService } from './services/edificios.service';
     UsuarioAddComponent,
     UsuarioEditComponent,
     UsuarioGetComponent,
-    InventarioComponent,
-    InventarioAddComponent,
-    InventarioGetComponent,
-    InventarioEditComponent,
+    InventarioEquipoComponent,
+    InventarioEquipoAddComponent,
+    InventarioEquipoGetComponent,
+    InventarioEquipoEditComponent,
     EdificioComponent,
     EdificioAddComponent,
     EdificioEditComponent,
     EdificioGetComponent,
+    CategoriaComponent,
+    CategoriaAddComponent,
+    CategoriaEditComponent,
+    CategoriaGetComponent,
     LoginComponent
 
   ],
   entryComponents: [
     InstalacionesAddComponent,
     InstalacionesEditComponent,
-    InventarioAddComponent,
-    InventarioEditComponent,
+    InventarioEquipoAddComponent,
+    InventarioEquipoEditComponent,
     EdificioAddComponent,
     EdificioEditComponent,
     UsuarioAddComponent,
     UsuarioEditComponent,
+    CategoriaAddComponent,
+    CategoriaEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -160,7 +171,7 @@ import { EdificiosService } from './services/edificios.service';
     MatTooltipModule,
     MatTreeModule,
   ],
-  providers: [ InstalacionesService,InventarioService,UsuarioService,EdificiosService ],
+  providers: [ InstalacionesService,InventarioEquipoService,UsuarioService,EdificiosService,CategoriaService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

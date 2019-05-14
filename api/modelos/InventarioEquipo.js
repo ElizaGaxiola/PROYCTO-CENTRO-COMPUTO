@@ -1,10 +1,10 @@
-//instalaciones.js
+//inventarioEquipo.js
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Definir la coleccion y el esquema para instalaciones
-let Inventario = new Schema({
+let InventarioEquipo = new Schema({
   tipo: {
     type: String
   },
@@ -33,7 +33,7 @@ let Inventario = new Schema({
     type: Number
   }
 },{
-    collection: 'inventario'
+    collection: 'inventarioEquipo'
 });
 
-module.exports = mongoose.model('Inventario', Inventario);
+module.exports = mongoose.model('InventarioEquipo', InventarioEquipo);

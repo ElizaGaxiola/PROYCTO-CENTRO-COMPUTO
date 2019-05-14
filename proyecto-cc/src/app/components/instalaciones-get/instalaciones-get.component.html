@@ -21,6 +21,16 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Edificio </th>
         <td mat-cell *matCellDef="let row"> <h6>{{ row.edificio }}</h6> </td>
       </ng-container>
+       <!-- Equipo -->
+       <ng-container matColumnDef="equipo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </th>
+          <td mat-cell *matCellDef="let row"> <h6>{{ row.equipo }}</h6> </td>
+        </ng-container>
+         <!-- Responsable -->
+      <ng-container matColumnDef="responsable">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Responsable </th>
+          <td mat-cell *matCellDef="let row"> <h6>{{ row.responsable }}</h6> </td>
+        </ng-container>
 
       <!-- Estatus -->
       <ng-container matColumnDef="estatus">

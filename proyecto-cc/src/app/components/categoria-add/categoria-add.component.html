@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Agregar Categoria</h1>
+    <mat-dialog-content>
+      <div class="card">
+        <div class="card-body">
+            <form [formGroup]="angForm" novalidate>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Clave" formControlName="clave" #clave>
+                    <mat-error *ngIf="angForm.controls['clave'].invalid && (angForm.controls['clave'].dirty || angForm.controls['clave'].touched)">
+                      <mat-error *ngIf="angForm.controls['clave'].errors.required">
+                        La clave es <strong>requerida</strong>
+                      </mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Nombre" formControlName="nombre" #nombre>
+                      <mat-error *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)">
+                        <mat-error *ngIf="angForm.controls['nombre'].errors.required">
+                          El nombre es <strong>requerida</strong>
+                        </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+                  <div class="center-align">
+                    <button (click)="add(clave.value, nombre.value)"
+                      [disabled]="angForm.pristine || angForm.invalid" 
+                      class="btn btn-primary center-align">
+                      Agregar Categoria
+                    </button>
+                  </div>
+            </form>
+        </div>
+      </div>
+    </mat-dialog-content>
